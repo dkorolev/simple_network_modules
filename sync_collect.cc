@@ -1,6 +1,6 @@
 #include "../current/bricks/dflags/dflags.h"
 
-#include "module_collect.h"
+#include "sync_collect.h"
 
 DEFINE_uint16(port, 10001, "The port to listen on.");
 DEFINE_uint16(kill_port, 10002, "The port to listen for the DELETE signal on.");

@@ -1,13 +1,13 @@
 #include "../current/3rdparty/gtest/gtest-main-with-dflags.h"
 
-#include "module_collect.h"
-#include "module_process.h"
+#include "sync_collect.h"
+#include "sync_process.h"
 
 DEFINE_uint16(port1, 10001, "A local port to use for the tests.");
 DEFINE_uint16(port2, 10002, "A local port to use for the tests.");
 DEFINE_uint16(port3, 10003, "A local port to use for the tests.");
 
-TEST(SimpleNetworkModules, SingleCollector) {
+TEST(Sync, SingleCollector) {
   std::string const collector_address = "localhost:" + current::ToString(FLAGS_port1);
   ModuleCollect collector_module(FLAGS_port1);
 
@@ -41,7 +41,7 @@ TEST(SimpleNetworkModules, SingleCollector) {
   }
 }
 
-TEST(SimpleNetworkModules, TestTwoCollectors) {
+TEST(Sync, TestTwoCollectors) {
   std::string const collector1_address = "localhost:" + current::ToString(FLAGS_port1);
   std::string const collector2_address = "localhost:" + current::ToString(FLAGS_port2);
   ModuleCollect collector1_module(FLAGS_port1);
@@ -97,7 +97,7 @@ TEST(SimpleNetworkModules, TestTwoCollectors) {
   }
 }
 
-TEST(SimpleNetworkModules, CollectorAndProcessor) {
+TEST(Sync, CollectorAndProcessor) {
   std::string const processor_address = "localhost:" + current::ToString(FLAGS_port1);
   std::string const collector_address = "localhost:" + current::ToString(FLAGS_port2);
   ModuleProcess processor_module(FLAGS_port1, collector_address, 10, 0);  // Multiplies by 10.
@@ -150,7 +150,7 @@ TEST(SimpleNetworkModules, CollectorAndProcessor) {
   }
 }
 
-TEST(SimpleNetworkModules, CollectorAndTwoProcessors) {
+TEST(Sync, CollectorAndTwoProcessors) {
   std::string const processor1_address = "localhost:" + current::ToString(FLAGS_port1);
   std::string const processor2_address = "localhost:" + current::ToString(FLAGS_port2);
   std::string const collector_address = "localhost:" + current::ToString(FLAGS_port3);

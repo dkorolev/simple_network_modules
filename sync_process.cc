@@ -1,6 +1,6 @@
 #include "../current/bricks/dflags/dflags.h"
 
-#include "module_process.h"
+#include "sync_process.h"
 
 DEFINE_uint16(port, 10001, "The port to listen on.");
 DEFINE_int64(k, 10000, "The `K` coefficient in the `K*x + B` expression.");
