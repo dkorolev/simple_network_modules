@@ -5,6 +5,7 @@
 DEFINE_uint16(port, 10001, "The port to listen on.");
 DEFINE_uint16(kill_port, 10002, "The port to listen for the DELETE signal on.");
 DEFINE_bool(v, false, "Set `-v` for the collector to dump every request and its response to standard output.");
+
 int main(int argc, char** argv) {
   ParseDFlags(&argc, &argv);
 
